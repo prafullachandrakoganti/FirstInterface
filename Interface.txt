@@ -1,0 +1,31 @@
+interface human{
+	void eat();
+	void walk();
+	void fight();
+	void drink();
+}
+
+class boy implements human{
+	public void eat() {
+		System.out.println("Human can eat");
+	}
+	public void walk() {
+		System.out.println("Human can walk");
+	}
+	public void fight() {
+		System.out.println("Human can fight");
+	}
+	public void drink() {
+		System.out.println("Human can drink");
+	}
+}
+
+public class ImplementingInterface{
+	public static void main(String[] args) {
+		human h = new boy();
+		h.eat();
+		h.drink();
+		h.fight();
+		h.walk();
+	}
+}
