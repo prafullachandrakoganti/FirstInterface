@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql2
+  name: mysql-02
 spec:
   selector:
     matchLabels:
-      app: mysql2
-  serviceName: mysql2
+      app: mysql-02
+  serviceName: mysql-02
   replicas: 1
   template:
     metadata:
       labels:
-        app: mysql2
+        app: mysql-02
     spec:
       containers:
-      - name: mysql2
-        image: mysql2:latest
+      - name: mysql-02
+        image: mysql-02:latest
         env:
-        - name: mysql2_ROOT_PASSWORD
+        - name: mysql-02_ROOT_PASSWORD
           value: yourpassword
         ports:
-        - name: mysql2
+        - name: mysql-02
           containerPort: 3306
         volumeMounts:
-        - name: mysql2-persistent-storage
-          mountPath: /var/lib/mysql2
+        - name: mysql-02-persistent-storage
+          mountPath: /var/lib/mysql-02
   volumeClaimTemplates:
   - metadata:
-      name: mysql2-persistent-storage
+      name: mysql-02-persistent-storage
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
